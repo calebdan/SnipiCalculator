@@ -1,15 +1,23 @@
 package co.danjuma.snipicalculator
 
 import android.os.Bundle
+import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.background
+import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import co.danjuma.snipicalculator.ui.theme.SnipiCalculatorTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +30,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    CalculatorScreen()
                 }
             }
         }
@@ -30,14 +38,46 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun CalculatorScreen() {
+    CalcUI()
+
+}
+
+@Composable
+fun CalcUI() { // this functions contains the logic for displays calculation and result activities nd
+
+    Column(
+        modifier = Modifier
+            .height(190.dp)
+            .fillMaxWidth()
+    ) {
+
+        Text(
+            text = "this is a text", modifier = Modifier.align(Alignment.Start)
+        )
+
+
+
+        Text(
+            text = "Test", modifier = Modifier.align(Alignment.End),
+        )
+
+    }
+
+
+
+    GridButtons()
+}
+
+@Composable
+fun GridButtons() {
+
 }
 
 @Preview(showBackground = true)
 @Composable
 fun DefaultPreview() {
     SnipiCalculatorTheme {
-        Greeting("Android")
+        CalculatorScreen()
     }
 }
