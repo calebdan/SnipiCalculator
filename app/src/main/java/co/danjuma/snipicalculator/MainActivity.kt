@@ -46,20 +46,19 @@ fun CalculatorScreen() {
 @Composable
 fun CalcUI() { // this functions contains the logic for displays calculation and result activities nd
 
-    Column(
+    Box(
         modifier = Modifier
             .height(190.dp)
             .fillMaxWidth()
     ) {
 
         Text(
-            text = "this is a text", modifier = Modifier.align(Alignment.Start)
-        )
+            text = "this is a text")
 
 
 
         Text(
-            text = "Test", modifier = Modifier.align(Alignment.End),
+            text = "Test", modifier = Modifier.align(Alignment.BottomEnd)
         )
 
     }
