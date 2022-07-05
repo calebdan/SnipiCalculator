@@ -49,7 +49,7 @@ fun CalcUI() { // this functions contains the logic for displays calculation and
     Box(
         modifier = Modifier
             .height(190.dp)
-            .fillMaxWidth()
+            .fillMaxWidth().padding(10.dp)
     ) {
 
         Text(
@@ -58,7 +58,8 @@ fun CalcUI() { // this functions contains the logic for displays calculation and
 
 
         Text(
-            text = "Test", modifier = Modifier.align(Alignment.BottomEnd)
+            text = "Test",
+            modifier = Modifier.align(Alignment.BottomEnd)
         )
 
     }
