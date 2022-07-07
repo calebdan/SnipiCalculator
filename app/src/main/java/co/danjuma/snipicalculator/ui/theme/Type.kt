@@ -8,9 +8,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import co.danjuma.snipicalculator.R
 
-val fonts = FontFamily(
-    Font(R.font.roboto_medium, weight = FontWeight.Medium),
-    Font(R.font.roboto_light, weight = FontWeight.Light),
+val RobotoFonts = FontFamily(
+
+    Font(R.font.roboto_bold, weight = FontWeight.Bold),
     Font(R.font.roboto_regular, weight = FontWeight.Normal)
 
 )
@@ -18,22 +18,18 @@ val fonts = FontFamily(
 // Set of Material typography styles to start with
 val Typography = Typography(
     body1 = TextStyle(
-        fontFamily = fonts,
+        fontFamily = RobotoFonts,
         fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontSize = 14.sp
     ),
 
     h1 = TextStyle(
-        fontFamily = fonts,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
-    ),
-
-    body2 = TextStyle(
-        fontFamily = fonts,
-        fontWeight = FontWeight.Normal,
-        fontSize = 16.sp
+        fontFamily = RobotoFonts,
+        fontWeight = FontWeight.Bold,
+        fontSize = 36.sp
     )
+
+
 )
 
 

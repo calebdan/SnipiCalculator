@@ -44,33 +44,39 @@ fun CalculatorScreen() {
 }
 
 @Composable
-fun CalcUI() { // this functions contains the logic for displays calculation and result activities nd
+fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic for displays calculation and result activities nd
 
-    Box(
-        modifier = Modifier
-            .height(190.dp)
-            .fillMaxWidth().padding(10.dp)
+    Column(
+        modifier = modifier
+            .background(color = Color(0xFF22252e))
+            .height(200.dp)
+            .fillMaxWidth()
+            .padding(10.dp),
+
+        horizontalAlignment = Alignment.End,
+        verticalArrangement = Arrangement.Bottom
     ) {
 
         Text(
-            text = "this is a text")
-
+            text = "308 x 42",
+            style = MaterialTheme.typography.body1
+        )
 
 
         Text(
-            text = "Test",
-            modifier = Modifier.align(Alignment.BottomEnd)
+            text = "12,939",
+            style = MaterialTheme.typography.h1
         )
-
     }
 
 
 
-    GridButtons()
+   CalcButtons()
 }
 
 @Composable
-fun GridButtons() {
+fun CalcButtons() {
+
 
 }
 
