@@ -9,6 +9,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Colors
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -52,9 +53,9 @@ fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic
     Column(
         modifier = modifier
             .background(color = Color(0xFF22252e))
-            .height(200.dp)
+            .height(250.dp)
             .fillMaxWidth()
-            .padding(10.dp),
+            .padding(20.dp),
 
         horizontalAlignment = Alignment.End,
         verticalArrangement = Arrangement.Bottom
@@ -62,7 +63,9 @@ fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic
 
         Text(
             text = "308 x 42",
-            style = MaterialTheme.typography.body1
+            style = MaterialTheme.typography.body1,
+            color = Color.White
+
         )
 
 
@@ -74,8 +77,6 @@ fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic
     }
 
 
-
-    CalcButtons()
 }
 
 @Composable
@@ -84,13 +85,20 @@ fun CalcButtons(
     modifier: Modifier,
     onClick: () -> Unit
 ) {
-    Box(contentAlignment = Alignment.Center,
+    Box(
+        contentAlignment = Alignment.Center,
         modifier = modifier
-            .clip(CircleShape)
+            .size(100.dp)
+            .clip(shape = RoundedCornerShape(10.dp))
             .clickable { onClick() }
             .then(modifier)) {
 
-        Text(text = symbol)
+        Text(
+            text = symbol,
+            color = Color.White,
+            style = MaterialTheme.typography.body1
+        )
+
 
     }
 
