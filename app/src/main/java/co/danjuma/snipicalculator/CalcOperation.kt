@@ -6,5 +6,4 @@ sealed class CalcOperation(val symbol: String): CalcAction(){
     object Subtract: CalcOperation("-")
     object Multiply: CalcOperation("*")
     object Divide: CalcOperation("/")
-
 }
