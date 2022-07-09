@@ -76,7 +76,7 @@ fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic
         )
     }
 
-
+ 
 }
 
 @Composable
