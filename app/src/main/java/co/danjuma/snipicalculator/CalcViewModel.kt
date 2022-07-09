@@ -9,4 +9,6 @@ class CalcViewModel: ViewModel() {
 
     var state by mutableStateOf(CalcState())
 
+    private set
+
 }
