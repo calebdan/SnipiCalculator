@@ -76,17 +76,17 @@ fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic
         )
     }
 
- 
+
 }
 
 @Composable
-fun CalcButtons(
+fun CalcButton(
     symbol: String,
     modifier: Modifier,
     onClick: () -> Unit
 ) {
     Box(
-        contentAlignment = Alignment.Center,
+
         modifier = modifier
             .size(100.dp)
             .clip(shape = RoundedCornerShape(10.dp))
@@ -98,8 +98,6 @@ fun CalcButtons(
             color = Color.White,
             style = MaterialTheme.typography.body1
         )
-
-
     }
 
 
