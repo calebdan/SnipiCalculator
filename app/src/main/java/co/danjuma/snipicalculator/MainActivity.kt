@@ -21,9 +21,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
 
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import co.danjuma.snipicalculator.ui.theme.NotVeryDarkBlue
 import co.danjuma.snipicalculator.ui.theme.SnipiCalculatorTheme
 import co.danjuma.snipicalculator.ui.theme.VeryDarkBlue
@@ -112,7 +114,7 @@ fun CalcButton() {
             "AC",
             "+-",
             "%",
-            "u00F7",
+            "\u00F7",
             "7",
             "8",
             "9",
@@ -133,15 +135,26 @@ fun CalcButton() {
 
         LazyVerticalGrid(
             cells = GridCells.Fixed(4),
-            contentPadding = PaddingValues(8.dp)
+            contentPadding = PaddingValues(6.dp)
         ) {
             items(data.size) { item ->
 
-                Card(modifier = Modifier.padding(10.dp),
-                backgroundColor = VeryDarkBlue) {
+                Card(
+                    modifier = Modifier.padding(10.dp),
+                    backgroundColor = VeryDarkBlue,
+                    elevation = 2.dp,
+                    shape = RoundedCornerShape(5.dp)
+                ) {
+
+                    Text(
+                        text = item.toString() ,
+                        fontSize = 24.sp,
+                        color = Color.White,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(24.dp)
+                    )
 
                 }
-
 
             }
 
