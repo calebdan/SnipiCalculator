@@ -1,28 +1,27 @@
 package co.danjuma.snipicalculator
 
 import android.os.Bundle
-import android.widget.TextView
+
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+
 import androidx.compose.foundation.background
-import androidx.compose.foundation.border
-import androidx.compose.foundation.clickable
+
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Colors
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
+
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
+
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.modifier.modifierLocalConsumer
+
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import co.danjuma.snipicalculator.ui.theme.NotVeryDarkBlue
 import co.danjuma.snipicalculator.ui.theme.SnipiCalculatorTheme
+import co.danjuma.snipicalculator.ui.theme.VeryDarkBlue
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,6 +29,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             SnipiCalculatorTheme {
                 // A surface container using the 'background' color from the theme
+
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
@@ -52,7 +52,7 @@ fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic
 
     Column(
         modifier = modifier
-            .background(color = Color(0xFF22252e))
+            .background(color = VeryDarkBlue)
             .height(250.dp)
             .fillMaxWidth()
             .padding(20.dp),
@@ -80,25 +80,12 @@ fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic
 }
 
 @Composable
-fun CalcButton(
-    symbol: String,
-    modifier: Modifier,
-    onClick: () -> Unit
-) {
-    Box(
+fun CalcButton() {
 
-        modifier = modifier
-            .size(100.dp)
-            .clip(shape = RoundedCornerShape(10.dp))
-            .clickable { onClick() }
-            .then(modifier)) {
-
-        Text(
-            text = symbol,
-            color = Color.White,
-            style = MaterialTheme.typography.body1
-        )
-    }
+Box(modifier = Modifier.fillMaxWidth()
+    .background(color = NotVeryDarkBlue) ){
+    
+}
 
 
 }
