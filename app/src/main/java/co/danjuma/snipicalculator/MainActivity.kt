@@ -4,15 +4,21 @@ import android.os.Bundle
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.ExperimentalFoundationApi
 
 import androidx.compose.foundation.background
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.GridCells
+import androidx.compose.foundation.lazy.LazyVerticalGrid
+import androidx.compose.foundation.lazy.items
+import androidx.compose.foundation.shape.RoundedCornerShape
 
 import androidx.compose.material.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 
 import androidx.compose.ui.graphics.Color
 
@@ -45,50 +51,107 @@ class MainActivity : ComponentActivity() {
 fun CalculatorScreen() {
     CalcUI()
 
+
 }
 
 @Composable
-fun CalcUI(modifier: Modifier = Modifier) { // this functions contains the logic for displays calculation and result activities nd
+fun CalcUI() { // this functions contains the logic for displays calculation and result activities nd
 
     Column(
-        modifier = modifier
-            .background(color = VeryDarkBlue)
-            .height(250.dp)
+        modifier = Modifier
             .fillMaxWidth()
-            .padding(20.dp),
-
-        horizontalAlignment = Alignment.End,
-        verticalArrangement = Arrangement.Bottom
+            .fillMaxHeight()
+            .background(color = VeryDarkBlue)
     ) {
 
-        Text(
-            text = "308 x 42",
-            style = MaterialTheme.typography.body1,
-            color = Color.White
 
-        )
+        Column(
+            modifier = Modifier
+                .height(300.dp)
+                .fillMaxWidth()
+                .padding(25.dp),
 
+            horizontalAlignment = Alignment.End,
+            verticalArrangement = Arrangement.Bottom
+        ) {
 
-        Text(
-            text = "12,939",
-            style = MaterialTheme.typography.h1,
-            color = Color.White
-        )
+            Text(
+                text = "308 x 42",
+                style = MaterialTheme.typography.body1,
+                color = Color.White
+
+            )
+
+            Text(
+                text = "12,939",
+                style = MaterialTheme.typography.h1,
+                color = Color.White
+            )
+        }
+
+        CalcButton()
+
     }
 
 
 }
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun CalcButton() {
 
-Box(modifier = Modifier.fillMaxWidth()
-    .background(color = NotVeryDarkBlue) ){
-    
-}
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
+            .background(color = NotVeryDarkBlue)
+    ) {
+
+        val data = listOf(
+            "AC",
+            "+-",
+            "%",
+            "u00F7",
+            "7",
+            "8",
+            "9",
+            "*",
+            "4",
+            "5",
+            "6",
+            "-",
+            "1",
+            "2",
+            "3",
+            "+",
+            "H",
+            "0",
+            ".",
+            "="
+        )
+
+        LazyVerticalGrid(
+            cells = GridCells.Fixed(4),
+            contentPadding = PaddingValues(8.dp)
+        ) {
+            items(data.size) { item ->
+
+                Card(modifier = Modifier.padding(10.dp),
+                backgroundColor = VeryDarkBlue) {
+
+                }
+
+
+            }
+
+        }
+
+    }
 
 
 }
+
 
 @Preview(showBackground = true)
 @Composable
