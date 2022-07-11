@@ -136,12 +136,12 @@ fun CalcButton() {
 
         LazyVerticalGrid(
             cells = GridCells.Fixed(4),
-            contentPadding = PaddingValues(6.dp)
+            contentPadding = PaddingValues(start = 11.dp,end = 11.dp, top = 30.dp)
         ) {
-            items(data.size) { item ->
+            items(data) { item ->
 
                 Card(
-                    modifier = Modifier.padding(10.dp),
+                    modifier = Modifier.padding(9.dp),
                     backgroundColor = VeryDarkBlue,
                     elevation = 2.dp,
                     shape = RoundedCornerShape(5.dp)
@@ -149,7 +149,7 @@ fun CalcButton() {
 
                     Text(
                         text = item,
-                        fontSize = 24.sp,
+                        fontSize = 20.sp,
                         color = Color.White,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(24.dp)
