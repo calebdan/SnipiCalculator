@@ -75,7 +75,7 @@ fun CalcUI() { // this functions contains the logic for displays calculation and
 
         Column(
             modifier = Modifier
-                .height(300.dp)
+                .height(280.dp)
                 .fillMaxWidth()
                 .padding(25.dp),
 
@@ -143,29 +143,44 @@ fun CalcButton() {
 
         LazyVerticalGrid(
             cells = GridCells.Fixed(4),
-            contentPadding = PaddingValues(start = 11.dp,end = 11.dp, top = 30.dp)
+            contentPadding = PaddingValues(start = 20.dp,end = 20.dp, top = 30.dp)
         ) {
             items(data) { item ->
 
+
+               for(i in item){
+                   ///havent figured this out yet
+                   if (i.equals(0) && i.equals(1) && i.equals(2) && i.equals(3)){
+
+                     //  Text(text = i)
+
+                   }
+               }
+
                 Card(
-                    modifier = Modifier.padding(9.dp),
+                    modifier = Modifier.padding(10.dp),
                     backgroundColor = VeryDarkBlue,
-                    elevation = 2.dp,
+                    elevation = 1.dp,
                     shape = RoundedCornerShape(5.dp)
                 ) {
 
                     Text(
                         text = item,
-                        fontSize = 20.sp,
+                        fontSize = 19.sp,
                         color = Color.White,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(24.dp).clickable {
+                        modifier = Modifier
+                            .padding(17.dp)
+                            .clickable {
 
-                            Toast.makeText(context,
-                                "button  $item  clicked",
-                                Toast.LENGTH_LONG)
-                                .show()
-                        }
+                                Toast
+                                    .makeText(
+                                        context,
+                                        "button  $item  clicked",
+                                        Toast.LENGTH_LONG
+                                    )
+                                    .show()
+                            }
                     )
 
                 }
