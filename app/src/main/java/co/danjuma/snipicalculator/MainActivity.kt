@@ -1,12 +1,15 @@
 package co.danjuma.snipicalculator
 
+import android.content.Context
 import android.os.Bundle
+import android.widget.Toast
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.ExperimentalFoundationApi
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.GridCells
@@ -22,6 +25,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.style.TextAlign
 
 import androidx.compose.ui.tooling.preview.Preview
@@ -30,6 +34,7 @@ import androidx.compose.ui.unit.sp
 import co.danjuma.snipicalculator.ui.theme.NotVeryDarkBlue
 import co.danjuma.snipicalculator.ui.theme.SnipiCalculatorTheme
 import co.danjuma.snipicalculator.ui.theme.VeryDarkBlue
+
 
 
 class MainActivity : ComponentActivity() {
@@ -103,6 +108,8 @@ fun CalcUI() { // this functions contains the logic for displays calculation and
 @Composable
 fun CalcButton() {
 
+    val context =  LocalContext.current
+
     Box(
         modifier = Modifier
             .fillMaxWidth()
@@ -152,7 +159,13 @@ fun CalcButton() {
                         fontSize = 20.sp,
                         color = Color.White,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(24.dp)
+                        modifier = Modifier.padding(24.dp).clickable {
+
+                            Toast.makeText(context,
+                                "button  $item  clicked",
+                                Toast.LENGTH_LONG)
+                                .show()
+                        }
                     )
 
                 }
