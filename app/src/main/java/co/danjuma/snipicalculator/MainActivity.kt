@@ -36,7 +36,6 @@ import co.danjuma.snipicalculator.ui.theme.SnipiCalculatorTheme
 import co.danjuma.snipicalculator.ui.theme.VeryDarkBlue
 
 
-
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,7 +107,7 @@ fun CalcUI() { // this functions contains the logic for displays calculation and
 @Composable
 fun CalcButton() {
 
-    val context =  LocalContext.current
+    val context = LocalContext.current
 
     Box(
         modifier = Modifier
@@ -143,54 +142,45 @@ fun CalcButton() {
 
         LazyVerticalGrid(
             cells = GridCells.Fixed(4),
-            contentPadding = PaddingValues(start = 20.dp,end = 20.dp, top = 30.dp)
+            contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 30.dp)
         ) {
             items(data) { item ->
 
 
-               for(i in item){
-                   ///havent figured this out yet
-                   if (i.equals(0) && i.equals(1) && i.equals(2) && i.equals(3)){
-
-                     //  Text(text = i)
-
-                   }
-               }
-
                 Card(
-                    modifier = Modifier.padding(10.dp),
+                    modifier = Modifier.padding(10.dp)
+                        .clickable {
+                            Toast
+                                .makeText(
+                                    context,
+                                    "button  $item  clicked",
+                                    Toast.LENGTH_LONG
+                                ).show()
+
+                    },
                     backgroundColor = VeryDarkBlue,
                     elevation = 1.dp,
                     shape = RoundedCornerShape(5.dp)
+
                 ) {
 
                     Text(
-                        text = item,
+                        text = item[0].toString(),
                         fontSize = 19.sp,
                         color = Color.White,
                         textAlign = TextAlign.Center,
                         modifier = Modifier
                             .padding(17.dp)
-                            .clickable {
-
-                                Toast
-                                    .makeText(
-                                        context,
-                                        "button  $item  clicked",
-                                        Toast.LENGTH_LONG
-                                    )
-                                    .show()
-                            }
                     )
 
                 }
+
 
             }
 
         }
 
     }
-
 
 }
 
