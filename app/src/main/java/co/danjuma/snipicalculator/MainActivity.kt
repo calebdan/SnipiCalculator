@@ -57,24 +57,22 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CalculatorScreen() {
     CalcUI()
-
-
 }
 
 @Composable
-fun CalcUI() { // this functions contains the logic for displays calculation and result activities nd
+fun CalcUI() {
+// this functions contains the logic for displays calculation and result activities nd
 
     Column(
         modifier = Modifier
-            .fillMaxWidth()
-            .fillMaxHeight()
+            .fillMaxSize()
             .background(color = VeryDarkBlue)
     ) {
 
 
         Column(
             modifier = Modifier
-                .height(280.dp)
+                .height(360.dp)
                 .fillMaxWidth()
                 .padding(25.dp),
 
@@ -112,7 +110,7 @@ fun CalcButton() {
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .fillMaxHeight()
+            .fillMaxWidth()
             .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
             .background(color = NotVeryDarkBlue)
     ) {
@@ -142,40 +140,46 @@ fun CalcButton() {
 
         LazyVerticalGrid(
             cells = GridCells.Fixed(4),
-            contentPadding = PaddingValues(start = 20.dp, end = 20.dp, top = 30.dp)
+            contentPadding = PaddingValues(
+                start = 20.dp,
+                end = 20.dp,
+                top = 30.dp,
+                bottom = 30.dp
+            )
         ) {
             items(data) { item ->
 
-
                 Card(
-                    modifier = Modifier.padding(10.dp)
+
+                    // One day one commit, so for today nothing substantial is being added
+                    // just this comment
+                    modifier = Modifier
+                        .padding(12.dp)
                         .clickable {
                             Toast
                                 .makeText(
                                     context,
                                     "button  $item  clicked",
                                     Toast.LENGTH_LONG
-                                ).show()
+                                )
+                                .show()
 
-                    },
+                        },
                     backgroundColor = VeryDarkBlue,
                     elevation = 1.dp,
                     shape = RoundedCornerShape(5.dp)
 
                 ) {
-
                     Text(
-                        text = item[0].toString(),
+                        text = item,
                         fontSize = 19.sp,
+                        style = MaterialTheme.typography.h1,
                         color = Color.White,
                         textAlign = TextAlign.Center,
                         modifier = Modifier
-                            .padding(17.dp)
+                            .padding(15.dp)
                     )
-
                 }
-
-
             }
 
         }
