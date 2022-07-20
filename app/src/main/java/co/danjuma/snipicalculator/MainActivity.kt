@@ -144,7 +144,7 @@ fun CalcButton() {
                 start = 20.dp,
                 end = 20.dp,
                 top = 30.dp,
-                bottom = 30.dp
+                bottom = 70.dp
             )
         ) {
             items(data) { item ->
@@ -153,6 +153,7 @@ fun CalcButton() {
 
                     // One day one commit, so for today nothing substantial is being added
                     // just this comment
+                    //im back bitches
                     modifier = Modifier
                         .padding(12.dp)
                         .clickable {
