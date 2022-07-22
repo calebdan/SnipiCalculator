@@ -72,7 +72,7 @@ fun CalcUI() {
 
         Column(
             modifier = Modifier
-                .height(360.dp)
+                .height(315.dp)
                 .fillMaxWidth()
                 .padding(25.dp),
 
@@ -109,9 +109,11 @@ fun CalcButton() {
 
     Box(
         modifier = Modifier
+            .fillMaxHeight()
             .fillMaxWidth()
-            .fillMaxWidth()
-            .clip(RoundedCornerShape(topStart = 30.dp, topEnd = 30.dp))
+            .clip(RoundedCornerShape(
+                topStart = 30.dp,
+                topEnd = 30.dp))
             .background(color = NotVeryDarkBlue)
     ) {
 
@@ -141,9 +143,9 @@ fun CalcButton() {
         LazyVerticalGrid(
             cells = GridCells.Fixed(4),
             contentPadding = PaddingValues(
-                start = 20.dp,
-                end = 20.dp,
-                top = 30.dp,
+                start = 30.dp,
+                end = 30.dp,
+                top = 40.dp,
                 bottom = 70.dp
             )
         ) {
@@ -151,11 +153,9 @@ fun CalcButton() {
 
                 Card(
 
-                    // One day one commit, so for today nothing substantial is being added
-                    // just this comment
-                    //im back bitches
+
                     modifier = Modifier
-                        .padding(12.dp)
+                        .padding(10.dp)
                         .clickable {
                             Toast
                                 .makeText(
