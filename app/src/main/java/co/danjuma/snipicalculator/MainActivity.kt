@@ -64,7 +64,7 @@ fun CalcUI() {
 // this functions contains the logic for displays calculation and result activities nd
 
     Column(
-        modifier = Modifier
+             modifier = Modifier
             .fillMaxSize()
             .background(color = VeryDarkBlue)
     ) {
@@ -97,8 +97,6 @@ fun CalcUI() {
         CalcButton()
 
     }
-
-
 }
 
 @OptIn(ExperimentalFoundationApi::class)
@@ -111,9 +109,12 @@ fun CalcButton() {
         modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
-            .clip(RoundedCornerShape(
-                topStart = 30.dp,
-                topEnd = 30.dp))
+            .clip(
+                RoundedCornerShape(
+                    topStart = 30.dp,
+                    topEnd = 30.dp
+                )
+            )
             .background(color = NotVeryDarkBlue)
     ) {
 
@@ -187,6 +188,10 @@ fun CalcButton() {
 
     }
 
+}
+
+fun uhuh(){
+    
 }
 
 
