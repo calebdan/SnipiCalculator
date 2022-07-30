@@ -6,16 +6,14 @@ import android.widget.Toast
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.ExperimentalFoundationApi
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.GridCells
-import androidx.compose.foundation.lazy.LazyVerticalGrid
-import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 
 import androidx.compose.material.*
@@ -65,8 +63,8 @@ fun CalcUI() {
 
     Column(
              modifier = Modifier
-            .fillMaxSize()
-            .background(color = VeryDarkBlue)
+                 .fillMaxSize()
+                 .background(color = VeryDarkBlue)
     ) {
 
 
@@ -99,7 +97,7 @@ fun CalcUI() {
     }
 }
 
-@OptIn(ExperimentalFoundationApi::class)
+
 @Composable
 fun CalcButton() {
 
@@ -141,11 +139,14 @@ fun CalcButton() {
             "="
         )
 
+
+
         LazyVerticalGrid(
-            cells = GridCells.Fixed(4),
+
+             GridCells.Fixed(4),
             contentPadding = PaddingValues(
-                start = 30.dp,
-                end = 30.dp,
+                start = 25.dp,
+                end = 25.dp,
                 top = 40.dp,
                 bottom = 70.dp
             )
@@ -161,7 +162,7 @@ fun CalcButton() {
                             Toast
                                 .makeText(
                                     context,
-                                    "button  $item  clicked",
+                                    "button $item  clicked",
                                     Toast.LENGTH_LONG
                                 )
                                 .show()
@@ -190,9 +191,6 @@ fun CalcButton() {
 
 }
 
-fun uhuh(){
-    
-}
 
 
 @Preview(showBackground = true)
