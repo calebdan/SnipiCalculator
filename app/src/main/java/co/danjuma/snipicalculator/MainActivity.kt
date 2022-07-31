@@ -156,7 +156,7 @@ fun CalcButton() {
                                 .makeText(
                                     context,
                                     "button $item  clicked",
-                                    Toast.LENGTH_LONG
+                                    Toast.LENGTH_SHORT
                                 )
                                 .show()
 
