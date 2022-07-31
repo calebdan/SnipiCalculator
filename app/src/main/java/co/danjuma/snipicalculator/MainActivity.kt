@@ -54,17 +54,10 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CalculatorScreen() {
-    CalcUI()
-}
-
-@Composable
-fun CalcUI() {
-// this functions contains the logic for displays calculation and result activities nd
-
     Column(
-             modifier = Modifier
-                 .fillMaxSize()
-                 .background(color = VeryDarkBlue)
+        modifier = Modifier
+            .fillMaxSize()
+            .background(color = VeryDarkBlue)
     ) {
 
 
@@ -143,7 +136,7 @@ fun CalcButton() {
 
         LazyVerticalGrid(
 
-             GridCells.Fixed(4),
+            GridCells.Fixed(4),
             contentPadding = PaddingValues(
                 start = 25.dp,
                 end = 25.dp,
@@ -190,7 +183,6 @@ fun CalcButton() {
     }
 
 }
-
 
 
 @Preview(showBackground = true)
