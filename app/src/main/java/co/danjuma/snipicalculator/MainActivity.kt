@@ -17,13 +17,15 @@ import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
 
 import androidx.compose.ui.tooling.preview.Preview
@@ -71,15 +73,20 @@ fun CalculatorScreen() {
             verticalArrangement = Arrangement.Bottom
         ) {
 
+            var calculationText by remember { mutableStateOf("308 x 142")}
+            var resultText by remember { mutableStateOf("12,939")}
+
+
+
             Text(
-                text = "308 x 42",
+                text = calculationText,
                 style = MaterialTheme.typography.body1,
                 color = Color.White
 
             )
 
             Text(
-                text = "12,939",
+                text = resultText,
                 style = MaterialTheme.typography.h1,
                 color = Color.White
             )
