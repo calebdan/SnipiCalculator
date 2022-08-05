@@ -56,15 +56,16 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CalculatorScreen() {
-    val calculationText by remember { mutableStateOf("308 x 142") }
-    val resultText by remember { mutableStateOf("12,939") }
+
+
+    var calculationText: String by remember { mutableStateOf("308 x 42") }
+    var resultText: String by remember { mutableStateOf("12,939") }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(color = VeryDarkBlue)
     ) {
-
 
         Column(
             modifier = Modifier
@@ -78,7 +79,8 @@ fun CalculatorScreen() {
 
 
             Text(
-                text = calculationText,
+
+                text = calculationText ,
                 style = MaterialTheme.typography.body1,
                 color = Color.White,
                 maxLines = 2
@@ -94,14 +96,16 @@ fun CalculatorScreen() {
         }
 
 
-        CalcButton(calculationText, resultText)
 
     }
 }
 
 
 @Composable
-fun CalcButton(s: String, a: String) {
+fun CalcButton() {
+
+    CalculatorScreen()
+
 
     val context = LocalContext.current
 
@@ -154,11 +158,13 @@ fun CalcButton(s: String, a: String) {
             items(data) { item ->
 
                 Card(
-
-
                     modifier = Modifier
                         .padding(10.dp)
                         .clickable {
+
+
+
+
                             Toast
                                 .makeText(
                                     context,
