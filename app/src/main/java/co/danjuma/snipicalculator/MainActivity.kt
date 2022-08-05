@@ -56,6 +56,9 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun CalculatorScreen() {
+    val calculationText by remember { mutableStateOf("308 x 142") }
+    val resultText by remember { mutableStateOf("12,939") }
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -73,33 +76,32 @@ fun CalculatorScreen() {
             verticalArrangement = Arrangement.Bottom
         ) {
 
-            var calculationText by remember { mutableStateOf("308 x 142")}
-            var resultText by remember { mutableStateOf("12,939")}
-
-
 
             Text(
                 text = calculationText,
                 style = MaterialTheme.typography.body1,
-                color = Color.White
+                color = Color.White,
+                maxLines = 2
 
             )
 
             Text(
                 text = resultText,
                 style = MaterialTheme.typography.h1,
-                color = Color.White
+                color = Color.White,
+                maxLines = 2
             )
         }
 
-        CalcButton()
+
+        CalcButton(calculationText, resultText)
 
     }
 }
 
 
 @Composable
-fun CalcButton() {
+fun CalcButton(s: String, a: String) {
 
     val context = LocalContext.current
 
@@ -140,9 +142,7 @@ fun CalcButton() {
         )
 
 
-
         LazyVerticalGrid(
-
             GridCells.Fixed(4),
             contentPadding = PaddingValues(
                 start = 25.dp,
@@ -166,6 +166,7 @@ fun CalcButton() {
                                     Toast.LENGTH_SHORT
                                 )
                                 .show()
+
 
                         },
                     backgroundColor = VeryDarkBlue,
