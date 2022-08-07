@@ -58,8 +58,8 @@ class MainActivity : ComponentActivity() {
 fun CalculatorScreen() {
 
 
-    var calculationText: String by remember { mutableStateOf("308 x 42") }
-    var resultText: String by remember { mutableStateOf("12,939") }
+    var calculationText by remember { mutableStateOf("308 x 42") }
+    var resultText by remember { mutableStateOf("12,939") }
 
     Column(
         modifier = Modifier
@@ -80,7 +80,7 @@ fun CalculatorScreen() {
 
             Text(
 
-                text = calculationText ,
+                text = calculationText,
                 style = MaterialTheme.typography.body1,
                 color = Color.White,
                 maxLines = 2
@@ -92,9 +92,12 @@ fun CalculatorScreen() {
                 style = MaterialTheme.typography.h1,
                 color = Color.White,
                 maxLines = 2
+
+
             )
         }
 
+        CalcButton(calc_ = calculationText, calcResult =  resultText )
 
 
     }
@@ -102,10 +105,8 @@ fun CalculatorScreen() {
 
 
 @Composable
-fun CalcButton() {
-
-    CalculatorScreen()
-
+fun CalcButton(calc_: String = "", calcResult: String) {
+    var calc = calc_
 
     val context = LocalContext.current
 
@@ -162,8 +163,9 @@ fun CalcButton() {
                         .padding(10.dp)
                         .clickable {
 
-
-
+                            if (calc.isNotBlank()){
+                               calc = item
+                            }
 
                             Toast
                                 .makeText(
