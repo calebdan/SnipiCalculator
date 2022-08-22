@@ -1,6 +1,6 @@
 package co.danjuma.snipicalculator
 
 data class CalculatorState(
-    val calcValue: String ="",
+    var calcValue: String ="",
     val resultValue:String =""
 )
