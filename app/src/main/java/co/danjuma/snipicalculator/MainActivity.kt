@@ -5,6 +5,7 @@ import android.widget.Toast
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -28,24 +29,27 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModel
 import co.danjuma.snipicalculator.ui.theme.NotVeryDarkBlue
 import co.danjuma.snipicalculator.ui.theme.SnipiCalculatorTheme
 import co.danjuma.snipicalculator.ui.theme.VeryDarkBlue
 
 
 class MainActivity : ComponentActivity() {
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SnipiCalculatorTheme {
-                // A surface container using the 'background' color from the theme
 
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
-                ) {
-                    CalculatorScreen()
-                }
+
+
+
+
+                CalculatorScreen()
+
             }
         }
     }
@@ -54,15 +58,16 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CalculatorScreen() {
 
+
+
     CalcView()
 
 }
 
 @Composable
 fun CalcView() {
-
-    var calculationText = "308 x 42"
-    var resultText = "12,939"
+    val calculationText = state.calcValue
+    val resultText = state.resultValue
 
     Column(
         modifier = Modifier
@@ -103,7 +108,6 @@ fun CalcView() {
         CalcButton()
 
     }
-
 
 
 }
