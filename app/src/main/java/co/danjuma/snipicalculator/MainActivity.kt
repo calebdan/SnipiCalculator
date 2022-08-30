@@ -38,14 +38,10 @@ import co.danjuma.snipicalculator.ui.theme.VeryDarkBlue
 class MainActivity : ComponentActivity() {
 
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             SnipiCalculatorTheme {
-
-
-
 
 
                 CalculatorScreen()
@@ -59,15 +55,28 @@ class MainActivity : ComponentActivity() {
 fun CalculatorScreen() {
 
 
-
     CalcView()
 
 }
 
 @Composable
 fun CalcView() {
-    val calculationText = state.calcValue
-    val resultText = state.resultValue
+
+    /*
+    * The purpose of this composable is to 1, view the calculations input,
+    * for example when a user types in 5+5.  2, to display the result of
+    * the calculation
+    */
+
+
+    /*
+    * when calculationText and resultText was added they  were supposed
+    * to somewhat act like global variables, yea I don't know what i was
+    * thinking.  Right now they are
+    * */
+
+    var calculationText = "123x455"
+    val resultText = "423"
 
     Column(
         modifier = Modifier
@@ -167,18 +176,16 @@ fun CalcButton() {
             items(data) { item ->
 
                 Card(
-                    modifier = Modifier
+                        modifier = Modifier
                         .padding(10.dp)
                         .clickable {
-
 
                             Toast
                                 .makeText(
                                     context,
                                     "button $item  clicked",
                                     Toast.LENGTH_SHORT
-                                )
-                                .show()
+                                ).show()
 
 
                         },
@@ -193,8 +200,7 @@ fun CalcButton() {
                         style = MaterialTheme.typography.h1,
                         color = Color.White,
                         textAlign = TextAlign.Center,
-                        modifier = Modifier
-                            .padding(15.dp)
+                        modifier = Modifier.padding(15.dp)
                     )
                 }
             }
