@@ -1,11 +1,10 @@
 package co.danjuma.snipicalculator
 
 import android.os.Bundle
-import android.widget.Toast
+
 
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.viewModels
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -23,16 +22,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.graphics.toArgb
+
 import androidx.compose.ui.text.style.TextAlign
 
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.lifecycle.ViewModel
-import co.danjuma.snipicalculator.ui.theme.NotVeryDarkBlue
-import co.danjuma.snipicalculator.ui.theme.SnipiCalculatorTheme
-import co.danjuma.snipicalculator.ui.theme.VeryDarkBlue
+import co.danjuma.snipicalculator.ui.theme.*
 
 
 class MainActivity : ComponentActivity() {
@@ -42,7 +39,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             SnipiCalculatorTheme {
-
 
                 CalculatorScreen()
 
@@ -54,10 +50,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun CalculatorScreen() {
 
-
     CalcView()
-
 }
+
 
 @Composable
 fun CalcView() {
@@ -73,10 +68,11 @@ fun CalcView() {
     * when calculationText and resultText was added they  were supposed
     * to somewhat act like global variables, yea I don't know what i was
     * thinking.  Right now they are
-    * */
+    */
 
-    var calculationText = "123x455"
-    val resultText = "423"
+    var calculationText by remember { mutableStateOf("") }
+    var resultText by remember { mutableStateOf("") }
+
 
     Column(
         modifier = Modifier
@@ -114,7 +110,7 @@ fun CalcView() {
             )
         }
 
-        CalcButton()
+        CalcButton({calculationText = it},  {})
 
     }
 
@@ -123,12 +119,15 @@ fun CalcView() {
 
 
 @Composable
-fun CalcButton() {
+fun CalcButton(
+    onCalcChange: (String) -> Unit,
+    onResultChange: (String) -> Unit
+) {
 
-    val context = LocalContext.current
+
 
     Box(
-        modifier = Modifier
+             modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
             .clip(
@@ -176,29 +175,49 @@ fun CalcButton() {
             items(data) { item ->
 
                 Card(
-                        modifier = Modifier
+                    modifier = Modifier
                         .padding(10.dp)
                         .clickable {
 
-                            Toast
-                                .makeText(
-                                    context,
-                                    "button $item  clicked",
-                                    Toast.LENGTH_SHORT
-                                ).show()
+                            //create a string builder
+                            //append the string
+                            //enum class
+
+
+
+
+                          onCalcChange(item)
 
 
                         },
+
                     backgroundColor = VeryDarkBlue,
                     elevation = 1.dp,
                     shape = RoundedCornerShape(5.dp)
 
                 ) {
+                    val btnTextColor = when(item) {
+                        "AC" ->{Color(color = Teal200.toArgb())}
+                        "+-" ->{Color(color = Teal200.toArgb())}
+                        "%"  ->{Color(color = Teal200.toArgb())}
+                        "*"  ->{Color(color = somewhatRed.toArgb())}
+                        "÷"  ->{Color(color = somewhatRed.toArgb())}
+                        "-"  ->{Color(color = somewhatRed.toArgb())}
+                        "+"  ->{Color(color = somewhatRed.toArgb())}
+                        "="  ->{Color(color = somewhatRed.toArgb())}
+
+
+                        else ->{
+                            Color.White
+                        }
+
+                    }
+
                     Text(
                         text = item,
                         fontSize = 19.sp,
                         style = MaterialTheme.typography.h1,
-                        color = Color.White,
+                        color = btnTextColor,
                         textAlign = TextAlign.Center,
                         modifier = Modifier.padding(15.dp)
                     )

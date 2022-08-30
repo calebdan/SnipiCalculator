@@ -1,2 +1,0 @@
-package co.danjuma.snipicalculator
-
