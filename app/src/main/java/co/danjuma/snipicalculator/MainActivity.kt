@@ -110,7 +110,7 @@ fun CalcView() {
             )
         }
 
-        CalcButton({calculationText = it},  {})
+        CalcButton({ calculationText = it }, {})
 
     }
 
@@ -124,10 +124,13 @@ fun CalcButton(
     onResultChange: (String) -> Unit
 ) {
 
+    var stb by remember { mutableStateOf("") }
+
+
 
 
     Box(
-             modifier = Modifier
+        modifier = Modifier
             .fillMaxHeight()
             .fillMaxWidth()
             .clip(
@@ -178,15 +181,15 @@ fun CalcButton(
                     modifier = Modifier
                         .padding(10.dp)
                         .clickable {
+                            stb += item
+
 
                             //create a string builder
                             //append the string
                             //enum class
 
 
-
-
-                          onCalcChange(item)
+                            onCalcChange(stb)
 
 
                         },
@@ -196,18 +199,34 @@ fun CalcButton(
                     shape = RoundedCornerShape(5.dp)
 
                 ) {
-                    val btnTextColor = when(item) {
-                        "AC" ->{Color(color = Teal200.toArgb())}
-                        "+-" ->{Color(color = Teal200.toArgb())}
-                        "%"  ->{Color(color = Teal200.toArgb())}
-                        "*"  ->{Color(color = somewhatRed.toArgb())}
-                        "÷"  ->{Color(color = somewhatRed.toArgb())}
-                        "-"  ->{Color(color = somewhatRed.toArgb())}
-                        "+"  ->{Color(color = somewhatRed.toArgb())}
-                        "="  ->{Color(color = somewhatRed.toArgb())}
+                    val btnTextColor = when (item) {
+                        "AC" -> {
+                            Color(color = Teal200.toArgb())
+                        }
+                        "+-" -> {
+                            Color(color = Teal200.toArgb())
+                        }
+                        "%" -> {
+                            Color(color = Teal200.toArgb())
+                        }
+                        "*" -> {
+                            Color(color = somewhatRed.toArgb())
+                        }
+                        "÷" -> {
+                            Color(color = somewhatRed.toArgb())
+                        }
+                        "-" -> {
+                            Color(color = somewhatRed.toArgb())
+                        }
+                        "+" -> {
+                            Color(color = somewhatRed.toArgb())
+                        }
+                        "=" -> {
+                            Color(color = somewhatRed.toArgb())
+                        }
 
 
-                        else ->{
+                        else -> {
                             Color.White
                         }
 
