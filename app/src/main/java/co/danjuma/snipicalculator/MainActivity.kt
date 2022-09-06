@@ -70,7 +70,7 @@ fun CalcView() {
     * thinking.  Right now they are
     */
 
-    var calculationText by remember { mutableStateOf("") }
+    var calculation by remember { mutableStateOf("") }
     var resultText by remember { mutableStateOf("") }
 
 
@@ -93,7 +93,7 @@ fun CalcView() {
 
             Text(
 
-                text = calculationText,
+                text = calculation,
                 style = MaterialTheme.typography.body1,
                 color = Color.White,
                 maxLines = 2
@@ -110,7 +110,7 @@ fun CalcView() {
             )
         }
 
-        CalcButton({ calculationText = it }, {})
+        CalcButton({ calculation = it }, {})
 
     }
 
@@ -124,7 +124,7 @@ fun CalcButton(
     onResultChange: (String) -> Unit
 ) {
 
-    var stb by remember { mutableStateOf("") }
+    var currentItem by remember { mutableStateOf("") }
 
 
 
@@ -181,15 +181,19 @@ fun CalcButton(
                     modifier = Modifier
                         .padding(10.dp)
                         .clickable {
-                            stb += item
+                            currentItem += item
 
 
                             //create a string builder
                             //append the string
                             //enum class
 
+                            /* the idea now is to create a function to check
+                            * */
 
-                            onCalcChange(stb)
+
+
+                            onCalcChange(currentItem)
 
 
                         },
@@ -249,6 +253,11 @@ fun CalcButton(
 
 }
 
+fun calcOperationCheck(input: String): Boolean {
+    return input.toDoubleOrNull() != null
+
+
+}
 
 @Preview(showBackground = true)
 @Composable
