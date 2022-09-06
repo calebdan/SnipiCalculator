@@ -183,13 +183,21 @@ fun CalcButton(
                         .clickable {
                             currentItem += item
 
-
                             //create a string builder
                             //append the string
                             //enum class
 
-                            /* the idea now is to create a function to check
-                            * */
+                            /*
+
+                            The idea now is to create a function that checks
+                            if the view already has numbers or is empty,
+                            if it is empty then digits can be typed in by
+                            the users if not empty then digits plus operations
+                            can be typed in.
+
+
+
+                             */
 
 
 
