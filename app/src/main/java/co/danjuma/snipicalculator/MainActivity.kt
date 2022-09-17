@@ -125,6 +125,8 @@ fun CalcButton(
 ) {
 
     var currentItem by remember { mutableStateOf("") }
+    var firstDigits by remember { mutableStateOf("") }
+    var secondDigits by remember { mutableStateOf("") }
 
 
 
@@ -143,8 +145,8 @@ fun CalcButton(
     ) {
 
         val data = listOf(
-            "AC",
-            "+-",
+            "C",
+            "+/-",
             "%",
             "\u00F7",
             "7",
@@ -159,7 +161,7 @@ fun CalcButton(
             "2",
             "3",
             "+",
-            "H",
+            "...",
             "0",
             ".",
             "="
@@ -183,21 +185,11 @@ fun CalcButton(
                         .clickable {
                             currentItem += item
 
-                            //create a string builder
-                            //append the string
-                            //enum class
-
-                            /*
-
-                            The idea now is to create a function that checks
-                            if the view already has numbers or is empty,
-                            if it is empty then digits can be typed in by
-                            the users if not empty then digits plus operations
-                            can be typed in.
 
 
 
-                             */
+
+
 
 
 
@@ -212,10 +204,10 @@ fun CalcButton(
 
                 ) {
                     val btnTextColor = when (item) {
-                        "AC" -> {
+                        "C" -> {
                             Color(color = Teal200.toArgb())
                         }
-                        "+-" -> {
+                        "+/-" -> {
                             Color(color = Teal200.toArgb())
                         }
                         "%" -> {
@@ -244,6 +236,7 @@ fun CalcButton(
 
                     }
 
+
                     Text(
                         text = item,
                         fontSize = 19.sp,
@@ -261,11 +254,9 @@ fun CalcButton(
 
 }
 
-fun calcOperationCheck(input: String): Boolean {
-    return input.toDoubleOrNull() != null
 
 
-}
+
 
 @Preview(showBackground = true)
 @Composable
