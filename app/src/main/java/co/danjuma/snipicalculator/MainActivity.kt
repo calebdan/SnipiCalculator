@@ -110,7 +110,7 @@ fun CalcView() {
             )
         }
 
-        CalcButton({ calculation = it }, {})
+        CalcButton({ calculation = it }, {resultText = it})
 
     }
 
@@ -125,8 +125,8 @@ fun CalcButton(
 ) {
 
     var currentItem by remember { mutableStateOf("") }
-    var firstDigits by remember { mutableStateOf("") }
-    var secondDigits by remember { mutableStateOf("") }
+    var operatorActive: Boolean? = null
+
 
 
 
@@ -186,6 +186,7 @@ fun CalcButton(
                             currentItem += item
 
 
+                            var nnew = calcOperations(currentItem)
 
 
 
@@ -193,7 +194,12 @@ fun CalcButton(
 
 
 
-                            onCalcChange(currentItem)
+
+
+
+
+                            onCalcChange(nnew)
+
 
 
                         },
@@ -204,6 +210,7 @@ fun CalcButton(
 
                 ) {
                     val btnTextColor = when (item) {
+
                         "C" -> {
                             Color(color = Teal200.toArgb())
                         }
@@ -251,11 +258,62 @@ fun CalcButton(
         }
 
     }
-
 }
 
+/*
+ I want to create a function that accepts what ever is received by the 'currentItem' variable
+ in line 185 but when an operator (+,\,-) is entered, it takes the digits entered before the
+ operator and assigns it to a new variable
+
+*/
+
+fun calcOperations(input: String ): String {
 
 
+
+
+    if (input.isNotBlank()) {
+        when (input) {
+
+            "C" -> {
+
+
+
+            }
+
+            "+/-" -> {
+
+
+            }
+            "%" -> {
+
+            }
+
+            "*" -> {
+
+
+            }
+
+            "÷" -> {
+
+            }
+            "-" -> {
+
+            }
+            "+" -> {
+
+            }
+            "=" -> {
+
+            }
+
+
+        }
+
+
+    }
+
+}
 
 
 @Preview(showBackground = true)
