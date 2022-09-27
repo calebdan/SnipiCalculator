@@ -110,7 +110,7 @@ fun CalcView() {
             )
         }
 
-        CalcButton({ calculation = it }, {resultText = it})
+        CalcButton({ calculation = it }, {})
 
     }
 
@@ -186,7 +186,7 @@ fun CalcButton(
                             currentItem += item
 
 
-                            var nnew = calcOperations(currentItem)
+                            val nnew = calcOperations(currentItem)
 
 
 
@@ -267,17 +267,16 @@ fun CalcButton(
 
 */
 
-fun calcOperations(input: String ): String {
+fun calcOperations(input: String): String {
+
+    var recievedInput = input
 
 
-
-
-    if (input.isNotBlank()) {
         when (input) {
 
             "C" -> {
 
-
+                recievedInput = input.dropLast(1)
 
             }
 
@@ -311,8 +310,8 @@ fun calcOperations(input: String ): String {
         }
 
 
-    }
 
+    return recievedInput
 }
 
 
