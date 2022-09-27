@@ -185,9 +185,7 @@ fun CalcButton(
                         .clickable {
                             currentItem += item
 
-
-                            val nnew = calcOperations(currentItem)
-
+                            val _currentItem = calcOperations(currentItem)
 
 
 
@@ -198,7 +196,8 @@ fun CalcButton(
 
 
 
-                            onCalcChange(nnew)
+
+                            onCalcChange(_currentItem)
 
 
 
@@ -276,7 +275,6 @@ fun calcOperations(input: String): String {
 
             "C" -> {
 
-                recievedInput = input.dropLast(1)
 
             }
 
